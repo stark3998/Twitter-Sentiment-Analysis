@@ -19,10 +19,10 @@ WORLD_WOE_ID = 1
 
 class TwitterClient(object):
     def __init__(self):
-        consumer_key = 'A0eC8f7INtXX77AipQ2Kla5xZ'
-        consumer_secret = 'nRSARtzJQCJYGFroLyVdaWAIn3uHrnndPuVo7gbKQyyJ8d6J6o'
-        access_token = '162208245-rrpNT0hUDyXoesWHwFFjNno00SSrFuzDhEM4YnsR'
-        access_token_secret = 'Uv0a4LEKtvTZ7csvP2KxZzsuzHzO2nGM7p72ky4L22eke'
+        consumer_key = ''
+        consumer_secret = ''
+        access_token = ''
+        access_token_secret = ''
         try:
             self.auth = OAuthHandler(consumer_key, consumer_secret)
             self.auth.set_access_token(access_token, access_token_secret)
@@ -63,10 +63,10 @@ class TwitterClient(object):
 
 
 def load():
-    CONSUMER_KEY = 'A0eC8f7INtXX77AipQ2Kla5xZ'
-    CONSUMER_SECRET = 'nRSARtzJQCJYGFroLyVdaWAIn3uHrnndPuVo7gbKQyyJ8d6J6o'
-    OAUTH_TOKEN = '162208245-rrpNT0hUDyXoesWHwFFjNno00SSrFuzDhEM4YnsR'
-    OAUTH_TOKEN_SECRET = 'Uv0a4LEKtvTZ7csvP2KxZzsuzHzO2nGM7p72ky4L22eke'
+    CONSUMER_KEY = ''
+    CONSUMER_SECRET = ''
+    OAUTH_TOKEN = ''
+    OAUTH_TOKEN_SECRET = ''
 
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     twitter_api = twitter.Twitter(auth=auth)
@@ -100,7 +100,7 @@ def load():
 
 def add_user():
     try:
-        cnx = mysql.connector.connect(user='root', password="0112143815", database='jatin')
+        cnx = mysql.connector.connect(user='root', password="", database='jatin')
         cursor = cnx.cursor()
         usen = str(input('Enter Username for the new user : '))
         passn = str(input('Enter Password for the new user : '))
@@ -122,7 +122,7 @@ def view_user():
     try:
         use = []
         passes = []
-        cnx = mysql.connector.connect(user='root', password="0112143815", database='jatin')
+        cnx = mysql.connector.connect(user='root', password="", database='jatin')
         query = "SELECT username,password from jatin.login"
         cursor = cnx.cursor()
         cursor.execute(query)
@@ -165,10 +165,10 @@ def del_user():
 
 
 def view_trends():
-    CONSUMER_KEY = 'A0eC8f7INtXX77AipQ2Kla5xZ'
-    CONSUMER_SECRET = 'nRSARtzJQCJYGFroLyVdaWAIn3uHrnndPuVo7gbKQyyJ8d6J6o'
-    OAUTH_TOKEN = '162208245-rrpNT0hUDyXoesWHwFFjNno00SSrFuzDhEM4YnsR'
-    OAUTH_TOKEN_SECRET = 'Uv0a4LEKtvTZ7csvP2KxZzsuzHzO2nGM7p72ky4L22eke'
+    CONSUMER_KEY = ''
+    CONSUMER_SECRET = ''
+    OAUTH_TOKEN = ''
+    OAUTH_TOKEN_SECRET = ''
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     twitter_api = twitter.Twitter(auth=auth)
     world_trends = twitter_api.trends.place(_id=WORLD_WOE_ID)
@@ -181,10 +181,10 @@ def change_trends():
     global WORLD_WOE_ID
     WORLD_WOE_ID = int(input('Enter the WOEID to change the tweet trends : '))
     # US_WOE_ID = 23424977
-    CONSUMER_KEY = 'A0eC8f7INtXX77AipQ2Kla5xZ'
-    CONSUMER_SECRET = 'nRSARtzJQCJYGFroLyVdaWAIn3uHrnndPuVo7gbKQyyJ8d6J6o'
-    OAUTH_TOKEN = '162208245-rrpNT0hUDyXoesWHwFFjNno00SSrFuzDhEM4YnsR'
-    OAUTH_TOKEN_SECRET = 'Uv0a4LEKtvTZ7csvP2KxZzsuzHzO2nGM7p72ky4L22eke'
+    CONSUMER_KEY = ''
+    CONSUMER_SECRET = ''
+    OAUTH_TOKEN = ''
+    OAUTH_TOKEN_SECRET = ''
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     twitter_api = twitter.Twitter(auth=auth)
     world_trends = twitter_api.trends.place(_id=WORLD_WOE_ID)
@@ -218,10 +218,10 @@ def admin():
 
 
 def advance_analysis():
-    CONSUMER_KEY = 'A0eC8f7INtXX77AipQ2Kla5xZ'
-    CONSUMER_SECRET = 'nRSARtzJQCJYGFroLyVdaWAIn3uHrnndPuVo7gbKQyyJ8d6J6o'
-    OAUTH_TOKEN = '162208245-rrpNT0hUDyXoesWHwFFjNno00SSrFuzDhEM4YnsR'
-    OAUTH_TOKEN_SECRET = 'Uv0a4LEKtvTZ7csvP2KxZzsuzHzO2nGM7p72ky4L22eke'
+    CONSUMER_KEY = ''
+    CONSUMER_SECRET = ''
+    OAUTH_TOKEN = ''
+    OAUTH_TOKEN_SECRET = ''
     auth = twitter.oauth.OAuth(OAUTH_TOKEN, OAUTH_TOKEN_SECRET, CONSUMER_KEY, CONSUMER_SECRET)
     twitter_api = twitter.Twitter(auth=auth)
     q = str(input('Enter a Name to Search : '))
@@ -368,8 +368,8 @@ def search_tweet():
 
 
 def extend_search():
-    my_api_key = "AIzaSyBQRF_TGWrSZKpTQ1_xPOx3NvQ1XhYvls4"
-    my_cse_id = "013940505986776895348:afl4gwyfw4m"
+    my_api_key = ""
+    my_cse_id = ""
 
     def google_search(search_term, api_key, cse_id, **kwargs):
         service = build("customsearch", "v1", developerKey=api_key)
@@ -414,7 +414,7 @@ def login():
     use = []
     passes = []
     try:
-        cnx = mysql.connector.connect(user='root', password="0112143815", database='jatin')
+        cnx = mysql.connector.connect(user='root', password="", database='jatin')
         query = "SELECT username,password from jatin.login"
         cursor = cnx.cursor()
         cursor.execute(query)
